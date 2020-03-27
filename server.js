@@ -33,6 +33,7 @@ io.on('connection', function(socket) {
       y: 300
     };
   });
+
   socket.on('movement', function(data) {
     var player = players[socket.id] || {};
     if (data.left) {
@@ -48,6 +49,8 @@ io.on('connection', function(socket) {
       player.y += 5;
     }
   });
-});setInterval(function() {
+});
+
+setInterval(function() {
   io.sockets.emit('state', players);
 }, 1000 / 60);

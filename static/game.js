@@ -9,6 +9,7 @@ var movement = {
   left: false,
   right: false
 }
+
 document.addEventListener('keydown', function(event) {
   switch (event.keyCode) {
     case 65: // A
@@ -42,6 +43,7 @@ document.addEventListener('keyup', function(event) {
   }
 });
 
+//sending to the client
 socket.emit('new player');
 setInterval(function() {
   socket.emit('movement', movement);
